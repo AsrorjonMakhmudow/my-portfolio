@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 380" width="390" height="380" role="img" aria-label="AM monogram">
+  <defs>
+    <linearGradient id="am" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B292FF"/>
+      <stop offset="100%" stop-color="#5FB9B0"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="374" height="364" rx="72" fill="none" stroke="url(#am)" stroke-width="6" opacity="0.55"/>
+  <text x="195" y="196" text-anchor="middle" dominant-baseline="central"
+        font-family="Raleway, ui-sans-serif, system-ui, sans-serif" font-weight="700"
+        font-size="150" letter-spacing="-6" fill="url(#am)">AM</text>
+</svg>
