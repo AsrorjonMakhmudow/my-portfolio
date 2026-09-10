@@ -69,7 +69,9 @@
         "p1": "Built responsive layouts for websites, admin panels and applications across e-commerce, finance, healthcare and corporate projects, optimised for a wide range of devices.",
         "p2": "Developed reusable UI components with Ant Design, Bootstrap and TailwindCSS to standardise design elements across projects, worked from Figma, Adobe XD and Sketch files, and collaborated closely with back-end developers on API and data-model integration."
       }
-    }
+    },
+    "viewMore": "View more",
+    "viewLess": "View less"
   },
   "education": {
     "intro": "< Where I studied, and the languages I work in day to day. />",

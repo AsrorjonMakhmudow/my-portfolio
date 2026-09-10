@@ -1,4 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
+import { Icon } from "@/components/ui/icon";
 import { formatMonthYear } from "@/lib/format";
 import type { Role } from "@/lib/content";
 
@@ -10,6 +11,15 @@ import type { Role } from "@/lib/content";
  * Figma repeats this card three times against Lorem Ipsum. Here it renders
  * once per entry in `content.ts`, with the prose pulled per locale and the
  * dates formatted rather than translated.
+ *
+ * The second paragraph sits behind a native <details>, so the page stays
+ * scannable — four roles at two paragraphs each is a lot to wade through.
+ * The disclosure wraps only that paragraph, not the whole card: putting the
+ * company link inside a <summary> would make clicking it collapse the card,
+ * since the browser treats any click in the summary as a toggle.
+ *
+ * <details> over a useState toggle means it works with no JS, is keyboard
+ * operable for free, and is found by the browser's own in-page search.
  */
 export function TimelineCard({ role, index = 0 }: { role: Role; index?: number }) {
   const locale = useLocale();
@@ -66,9 +76,22 @@ export function TimelineCard({ role, index = 0 }: { role: Role; index?: number }
             <p className="text-[16px] font-light leading-[1.9] text-ink-200 sm:text-[18px]">
               {t(`${r}.p1`)}
             </p>
-            <p className="text-[16px] font-light leading-[1.9] text-ink-200 sm:text-[18px]">
-              {t(`${r}.p2`)}
-            </p>
+
+            <details className="group">
+              <summary className="inline-flex cursor-pointer list-none items-center gap-[6px] rounded-full text-[16px] font-medium text-accent transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
+                <span className="group-open:hidden">{t("viewMore")}</span>
+                <span className="hidden group-open:inline">{t("viewLess")}</span>
+                <Icon
+                  icon="mdi:chevron-down"
+                  size={18}
+                  className="transition-transform duration-300 group-open:rotate-180"
+                />
+              </summary>
+
+              <p className="mt-[24px] text-[16px] font-light leading-[1.9] text-ink-200 sm:text-[18px]">
+                {t(`${r}.p2`)}
+              </p>
+            </details>
           </div>
         </div>
       </div>

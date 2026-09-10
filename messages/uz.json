@@ -69,7 +69,9 @@
         "p1": "Elektron tijorat, moliya, sog‘liqni saqlash va korporativ loyihalarda veb-saytlar, boshqaruv panellari va ilovalar uchun turli qurilmalarga moslashtirilgan responsiv maketlar yaratish.",
         "p2": "Loyihalar o‘rtasida dizayn elementlarini standartlashtirish uchun Ant Design, Bootstrap va TailwindCSS yordamida qayta ishlatiladigan UI komponentlarini ishlab chiqish, Figma, Adobe XD va Sketch maketlari bilan ishlash, API va ma’lumotlar modellari bilan uzluksiz integratsiya uchun bekend dasturchilari bilan yaqindan hamkorlik qilish."
       }
-    }
+    },
+    "viewMore": "Batafsil",
+    "viewLess": "Yig‘ish"
   },
   "education": {
     "intro": "< Men qayerda o‘qiganim va har kuni ishlatadigan tillarim. />",
