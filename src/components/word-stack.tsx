@@ -7,10 +7,8 @@ import { words } from "@/lib/content";
  * Figma widths (430 / 246 / 277px) against Raleway's own metrics puts the type
  * at ~88px, line-height ~1.2.
  *
- * The words are technology names, so they are not translated.
- *
- * The fill is `violet`, deeper than `accent` — see globals.css for how it was
- * matched and why it is still unconfirmed.
+ * Two fills, not one: the first word is `violet-muted`, the rest `violet` —
+ * see globals.css for how both were matched and why they remain unconfirmed.
  */
 export function WordStack() {
   return (
@@ -18,12 +16,14 @@ export function WordStack() {
       <ul aria-hidden className="flex flex-col items-center gap-[24px] lg:gap-[80px]">
         {words.map((word, index) => (
           <li
-            key={word}
+            key={word.label}
             data-reveal
             data-delay={String(index + 1)}
-            className="text-[44px] font-bold leading-[1.2] text-violet sm:text-[64px] lg:text-[88px]"
+            className={`text-[44px] font-bold leading-[1.2] sm:text-[64px] lg:text-[88px] ${
+              word.tone === "muted" ? "text-violet-muted" : "text-violet"
+            }`}
           >
-            {word}
+            {word.label}
           </li>
         ))}
       </ul>

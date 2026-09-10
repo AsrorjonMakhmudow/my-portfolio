@@ -26,8 +26,18 @@ export const heroLinks = {
  * Word stack — node 571:54
  * ------------------------------------------------------------------ */
 
-/** Technology names, so they read the same in every language. */
-export const words = ["Javascript", "Typescript", "React"] as const;
+/**
+ * Technology names, so they read the same in every language.
+ *
+ * The design does not use one colour for all three: the first is a muted,
+ * greyer purple and the other two are the saturated violet. Read off the
+ * rendered canvas (nodes 571:51, 571:52, 571:53) rather than assumed.
+ */
+export const words = [
+  { label: "Javascript", tone: "muted" },
+  { label: "Typescript", tone: "bright" },
+  { label: "React", tone: "bright" },
+] as const;
 
 /* ------------------------------------------------------------------ *
  * Tech carousel — node 571:459

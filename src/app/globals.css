@@ -34,6 +34,14 @@
    */
   --color-violet: #7c3aed;
 
+  /*
+   * The first word in the stack is not the same purple as the other two — it
+   * is visibly greyer and lighter on the canvas. Matched the same way as
+   * `violet`: candidate text rendered beside the real glyphs, same size, same
+   * background, narrowed over two rounds to #9E8FC4–#8E7FB4.
+   */
+  --color-violet-muted: #9585be;
+
   /* Type families are injected by next/font in layout.tsx */
   --font-display: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
   --font-ui: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
