@@ -1,8 +1,8 @@
 import { Hero } from "@/components/hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { Stats } from "@/components/stats";
-import { TechCarousel } from "@/components/tech-carousel";
+import { IntroExperience } from "@/components/intro-experience";
+import { WordStack } from "@/components/word-stack";
 import { TechStack } from "@/components/tech-stack";
 
 export default function HomePage() {
@@ -11,8 +11,8 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <Hero />
-        <Stats />
-        <TechCarousel />
+        <IntroExperience />
+        <WordStack />
         <TechStack />
       </main>
       <SiteFooter />

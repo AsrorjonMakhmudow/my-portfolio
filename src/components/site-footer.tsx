@@ -9,7 +9,7 @@ import { footerHeading, site, socials } from "@/lib/site";
  */
 export function SiteFooter() {
   return (
-    <footer className="mx-auto max-w-[1552px] px-6 pb-[60px]">
+    <footer className="mx-auto max-w-[1600px] px-6 pb-[60px]">
       <div className="flex flex-col items-center gap-[20px] rounded-[20px] bg-ink-800 px-[24px] py-[28px] sm:h-[90px] sm:flex-row sm:justify-between sm:px-[70px] sm:py-0">
         <p className="text-[20px] font-medium text-white sm:text-[24px]">{footerHeading}</p>
 

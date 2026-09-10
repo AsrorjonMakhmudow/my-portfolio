@@ -20,13 +20,13 @@ export default function EducationPage() {
           &lt; Where I studied, and the languages I work in day to day. /&gt;
         </PageIntro>
 
-        <div className="mx-auto flex max-w-[1520px] flex-col gap-[40px] px-6">
+        <div className="mx-auto flex max-w-[1568px] flex-col gap-[40px] px-6">
           {education.map((study) => (
             <StudyCard key={study.institution} study={study} />
           ))}
         </div>
 
-        <section className="mx-auto max-w-[1520px] px-6 py-[120px]">
+        <section className="mx-auto max-w-[1568px] px-6 py-[120px]">
           <h2 className="text-[24px] font-medium text-white">Languages</h2>
           <ul className="mt-[32px] flex flex-col gap-[16px] sm:flex-row sm:gap-[64px]">
             {languages.map((language) => (

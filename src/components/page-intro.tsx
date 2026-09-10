@@ -12,7 +12,7 @@ export function PageIntro({
   action?: React.ReactNode;
 }) {
   return (
-    <section className="mx-auto max-w-[1520px] px-6 pt-[120px] pb-[80px]">
+    <section className="mx-auto max-w-[1568px] px-6 pt-[120px] pb-[80px]">
       <Link
         href="/"
         className="text-[16px] font-light text-ink-200 transition-colors hover:text-accent"

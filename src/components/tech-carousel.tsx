@@ -7,15 +7,16 @@ import { carousel } from "@/lib/content";
 const GAP = 40;
 
 /**
- * Node 571:459 — four 409×277 cards on a 449px pitch (40px gutters), with the
- * four pagination pills at 571:47–571:518 below.
+ * Nodes 571:49 / 571:46 / 571:459 — the right column of
+ * `section-intro-experience`.
  *
- * The strip is 1756px wide, so at 1920 the Figma frame shows all four cards at
- * once and there is nothing to page through; the pills only mean something once
- * the viewport is narrow enough for the strip to overflow. So the track is
- * capped at the strip's own width — letting it run full-bleed lets a wide
- * viewport absorb the overflow, leaving the pills inert — and the pills hide
- * themselves when everything already fits.
+ * The strip (571:459) is 1756px of 409×277 cards on a 449px pitch, clipped by
+ * a 1082px viewport (571:46). That clipping is the whole mechanism: about two
+ * and a half cards show, and the rest is scrolled to.
+ *
+ * Pills (571:47, 571:48, 571:517, 571:518) are 13px tall on a 26.5px pitch —
+ * 66px wide for the active one, 20px for the rest — sitting 22px below the
+ * strip, inset from the viewport's left edge rather than centred.
  *
  * Scroll-snap rather than a JS carousel: native touch momentum and keyboard
  * scrolling come free, and it still works if the JS never runs.
@@ -51,9 +52,6 @@ export function TechCarousel() {
 
     sync();
     track.addEventListener("scroll", sync, { passive: true });
-
-    // Whether the strip overflows is a function of viewport width, so the
-    // pills have to be re-evaluated on resize, not just on scroll.
     const observer = new ResizeObserver(sync);
     observer.observe(track);
 
@@ -71,27 +69,24 @@ export function TechCarousel() {
   };
 
   return (
-    <section className="py-[120px]" aria-label="Core technologies">
-      {/* 1756px of cards + 2×24px padding — fits exactly at 1920, scrolls below. */}
-      <div className="mx-auto w-full max-w-[1804px] px-6">
-        <ul
-          ref={trackRef}
-          className="flex snap-x snap-mandatory gap-[40px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {carousel.map((tech) => (
-            <li
-              key={tech.label}
-              className="flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-center justify-center gap-[24px] rounded-[20px] bg-ink-800 sm:w-[409px]"
-            >
-              <Icon icon={tech.icon} size={56} />
-              <span className="text-[24px] font-medium text-white">{tech.label}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="w-full min-w-0 lg:max-w-[1082px]" aria-label="Core technologies" role="group">
+      <ul
+        ref={trackRef}
+        className="flex snap-x snap-mandatory gap-[40px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {carousel.map((tech) => (
+          <li
+            key={tech.label}
+            className="flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-center justify-center gap-[24px] rounded-[20px] bg-ink-800 sm:w-[409px]"
+          >
+            <Icon icon={tech.icon} size={56} />
+            <span className="text-[24px] font-medium text-white">{tech.label}</span>
+          </li>
+        ))}
+      </ul>
 
       {scrollable ? (
-        <div className="mt-[40px] flex justify-center gap-[12px]">
+        <div className="mt-[22px] flex gap-[6px] lg:pl-[83px]">
           {carousel.map((tech, index) => (
             <button
               key={tech.label}
@@ -99,13 +94,13 @@ export function TechCarousel() {
               onClick={() => goTo(index)}
               aria-label={`Show ${tech.label}`}
               aria-current={index === active}
-              className={`h-[8px] rounded-full transition-all duration-300 ${
-                index === active ? "w-[32px] bg-accent" : "w-[8px] bg-ink-500"
+              className={`h-[13px] rounded-full transition-all duration-300 ${
+                index === active ? "w-[66px] bg-accent" : "w-[20px] bg-ink-800"
               }`}
             />
           ))}
         </div>
       ) : null}
-    </section>
+    </div>
   );
 }

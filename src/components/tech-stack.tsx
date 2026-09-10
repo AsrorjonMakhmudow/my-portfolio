@@ -11,7 +11,7 @@ import { TechPill } from "@/components/tech-pill";
  */
 export function TechStack() {
   return (
-    <section className="mx-auto max-w-[1781px] px-6 pb-[120px]">
+    <section className="mx-auto max-w-[1829px] px-6 pb-[120px]">
       <h2 className="max-w-[794px] text-[32px] font-medium leading-[1.35] text-white sm:text-[48px]">
         {techHeading}
       </h2>

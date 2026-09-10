@@ -24,7 +24,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto flex max-w-[1520px] flex-col items-start gap-16 px-6 pt-[120px] pb-[160px] lg:flex-row lg:items-center lg:justify-between lg:pt-[170px]">
+      <div className="relative mx-auto flex max-w-[1568px] flex-col items-start gap-16 px-6 pt-[120px] pb-[160px] lg:flex-row lg:items-center lg:justify-between lg:pt-[170px]">
         <div className="max-w-[662px]">
           <h1 className="text-[40px] font-medium leading-tight text-white sm:text-[56px] lg:text-[75px]">
             {hero.heading}

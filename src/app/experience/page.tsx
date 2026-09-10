@@ -27,7 +27,7 @@ export default function ExperiencePage() {
           {experienceIntro}
         </PageIntro>
 
-        <div className="mx-auto flex max-w-[1520px] flex-col gap-[40px] px-6 pb-[120px]">
+        <div className="mx-auto flex max-w-[1568px] flex-col gap-[40px] px-6 pb-[120px]">
           {experience.map((role) => (
             <TimelineCard key={`${role.company}-${role.start}`} role={role} />
           ))}
