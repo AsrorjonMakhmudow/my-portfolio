@@ -33,13 +33,22 @@ export const words = ["Javascript", "Typescript", "React"] as const;
  * Tech carousel — node 571:459
  * ------------------------------------------------------------------ */
 
+/**
+ * `brand` is each technology's own colour. It drives two things: the card's
+ * tinted background (mixed 30% into a neutral, per `.tech-card`) and the
+ * colour of the border highlight sweeping that card — so the card, its ring
+ * and its icon all read as one.
+ *
+ * Next.js has a monochrome mark, so it takes a plain neutral, which is what
+ * the design does too — its Next.JS card is simply light grey.
+ */
 export const carousel = [
-  { label: "React", icon: "logos:react" },
-  { label: "Next.js", icon: "simple-icons:nextdotjs" },
-  { label: "TypeScript", icon: "logos:typescript-icon" },
-  { label: "Vite", icon: "vscode-icons:file-type-vite" },
-  { label: "Angular", icon: "logos:angular-icon" },
-  { label: "Figma", icon: "logos:figma" },
+  { label: "React", icon: "logos:react", brand: "#61DAFB" },
+  { label: "Next.js", icon: "simple-icons:nextdotjs", brand: "#7E8590" },
+  { label: "TypeScript", icon: "logos:typescript-icon", brand: "#3178C6" },
+  { label: "Vite", icon: "vscode-icons:file-type-vite", brand: "#646CFF" },
+  { label: "Angular", icon: "logos:angular-icon", brand: "#DD0031" },
+  { label: "Figma", icon: "logos:figma", brand: "#A259FF" },
 ] as const;
 
 /* ------------------------------------------------------------------ *

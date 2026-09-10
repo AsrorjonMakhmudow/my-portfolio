@@ -22,10 +22,9 @@ const GAP = 40;
  * Card content is left-aligned, inset 50px from the left and 90px from the
  * top, icon above label — consistent across all four cards in the design.
  *
- * TODO: each card in Figma carries its own tinted background keyed to the
- * technology (pale olive for JavaScript, steel blue for React, light grey for
- * Next.JS) with dark label text, not the single ink-800 used here. The exact
- * fills still need reading off the file.
+ * Each card is tinted toward its technology's brand colour and carries a
+ * border highlight in that same colour, so card, ring and icon read as one
+ * piece. The fill is derived rather than hardcoded — see `.tech-card`.
  *
  * Interaction. The base is a scroll-snap strip, so native touch momentum,
  * trackpad scrolling and keyboard arrows all come free and it still works if
@@ -169,10 +168,11 @@ export function TechCarousel() {
         {carousel.map((tech) => (
           <li
             key={tech.label}
-            className="card-hover flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-start rounded-[20px] bg-ink-800 pt-[90px] pl-[50px] sm:w-[409px]"
+            style={{ "--glow": tech.brand } as React.CSSProperties}
+            className="tech-card card-hover glow-border flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-start rounded-[20px] pt-[90px] pl-[50px] sm:w-[409px]"
           >
             <Icon icon={tech.icon} size={52} />
-            <span className="mt-[11px] text-[24px] font-medium text-white">{tech.label}</span>
+            <span className="mt-[11px] text-[24px] font-medium text-ink-950">{tech.label}</span>
           </li>
         ))}
       </ul>
