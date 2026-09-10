@@ -10,14 +10,14 @@
     "present": "Present"
   },
   "hero": {
-    "heading": "Hi, I’m Asrorjon",
+    "heading": "Hi, I’m Asror",
     "body": "<b>Six years</b> as <b>Front-End Software Engineer</b>, most of them in banking and fintech. My work goes beyond writing components — turning dense financial workflows into clear, step-by-step interfaces and defining features alongside product, design and back-end teams.",
     "ctaPrimary": "Download CV",
     "ctaSecondary": "See experiences",
     "portraitAlt": "Asrorjon Makhmudov"
   },
   "stats": {
-    "years": "6 years of",
+    "years": "<n></n> years of",
     "badge": "XP",
     "caption": "building banking and fintech interfaces with the modern React ecosystem"
   },
@@ -82,9 +82,18 @@
       }
     },
     "languages": {
-      "uz": { "name": "Uzbek", "level": "Native" },
-      "ru": { "name": "Russian", "level": "B2 — Upper Intermediate" },
-      "en": { "name": "English", "level": "B1 — Intermediate" }
+      "uz": {
+        "name": "Uzbek",
+        "level": "Native"
+      },
+      "ru": {
+        "name": "Russian",
+        "level": "B2 — Upper Intermediate"
+      },
+      "en": {
+        "name": "English",
+        "level": "B1 — Intermediate"
+      }
     }
   },
   "metadata": {

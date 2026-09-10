@@ -25,13 +25,13 @@ export const navLinks = [
 export const socials = [
   {
     label: "GitHub",
-    href: "https://github.com/REPLACE-ME",
+    href: "https://github.com/AsrorjonMakhmudow",
     icon: "mdi:github",
     compact: true,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/REPLACE-ME",
+    href: "https://www.linkedin.com/in/asrorjon-makhmudov-0a017a230",
     icon: "mdi:linkedin",
     compact: true,
   },

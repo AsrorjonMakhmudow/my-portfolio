@@ -169,7 +169,7 @@ export function TechCarousel() {
         {carousel.map((tech) => (
           <li
             key={tech.label}
-            className="flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-start rounded-[20px] bg-ink-800 pt-[90px] pl-[50px] sm:w-[409px]"
+            className="card-hover flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-start rounded-[20px] bg-ink-800 pt-[90px] pl-[50px] sm:w-[409px]"
           >
             <Icon icon={tech.icon} size={52} />
             <span className="mt-[11px] text-[24px] font-medium text-white">{tech.label}</span>

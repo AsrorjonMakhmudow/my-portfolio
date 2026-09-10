@@ -10,14 +10,14 @@
     "present": "hozirgacha"
   },
   "hero": {
-    "heading": "Salom, men Asrorjonman",
+    "heading": "Salom, mening ismim Asror",
     "body": "<b>Olti yil</b> davomida <b>front-end dasturchi</b> sifatida, asosan bank va fintech sohasida. Mening ishim komponentlar yozish bilan cheklanmaydi: murakkab moliyaviy jarayonlarni tushunarli, bosqichma-bosqich interfeyslarga aylantiraman va mahsulot, dizayn hamda bekend jamoalari bilan birgalikda yangi funksiyalarni belgilayman.",
     "ctaPrimary": "Rezyumeni yuklab olish",
     "ctaSecondary": "Tajribani ko‘rish",
     "portraitAlt": "Asrorjon Mahmudov"
   },
   "stats": {
-    "years": "6 yillik",
+    "years": "<n></n> yillik",
     "badge": "tajriba",
     "caption": "zamonaviy React ekotizimida bank va fintech interfeyslarini yaratish bo‘yicha"
   },

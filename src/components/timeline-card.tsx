@@ -11,14 +11,18 @@ import type { Role } from "@/lib/content";
  * once per entry in `content.ts`, with the prose pulled per locale and the
  * dates formatted rather than translated.
  */
-export function TimelineCard({ role }: { role: Role }) {
+export function TimelineCard({ role, index = 0 }: { role: Role; index?: number }) {
   const locale = useLocale();
   const t = useTranslations("experience");
   const tCommon = useTranslations("common");
   const r = `roles.${role.id}` as const;
 
   return (
-    <article className="rounded-[20px] bg-ink-800 p-[40px] lg:p-[84px]">
+    <article
+      className="card-hover rounded-[20px] bg-ink-800 p-[40px] lg:p-[84px]"
+      data-reveal
+      data-delay={String(Math.min(index + 1, 5))}
+    >
       <div className="flex flex-col gap-[40px] lg:flex-row lg:gap-[148px]">
         <header className="lg:w-[384px] lg:shrink-0">
           <h2 className="text-[24px] font-medium leading-[33px] text-white">

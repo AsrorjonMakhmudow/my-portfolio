@@ -16,9 +16,11 @@ export function WordStack() {
   return (
     <section className="px-6 py-[120px] lg:py-[180px]">
       <ul aria-hidden className="flex flex-col items-center gap-[24px] lg:gap-[80px]">
-        {words.map((word) => (
+        {words.map((word, index) => (
           <li
             key={word}
+            data-reveal
+            data-delay={String(index + 1)}
             className="text-[44px] font-bold leading-[1.2] text-violet sm:text-[64px] lg:text-[88px]"
           >
             {word}

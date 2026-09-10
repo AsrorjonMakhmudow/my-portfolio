@@ -11,19 +11,32 @@ import { techCards } from "@/lib/content";
  * steps down to three and then one column.
  *
  * Card titles are translated; the technology names inside them are not.
+ *
+ * These five carry the animated conic border. It is deliberately not on the
+ * carousel or timeline cards — a sweep on every surface stops reading as an
+ * accent and just becomes noise, and fifteen elements repainting forever is a
+ * real cost. Restraint is the point.
  */
 export function TechStack() {
   const t = useTranslations("tech");
 
   return (
     <section className="mx-auto max-w-[1829px] px-6 pb-[120px]">
-      <h2 className="max-w-[794px] text-[32px] font-medium leading-[1.35] text-white sm:text-[48px]">
+      <h2
+        className="max-w-[794px] text-[32px] font-medium leading-[1.35] text-white sm:text-[48px]"
+        data-reveal
+      >
         {t("heading")}
       </h2>
 
       <ul className="mt-[80px] grid grid-cols-1 items-start gap-[64px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {techCards.map((card) => (
-          <li key={card.id} className="rounded-[20px] bg-ink-800 px-[34px] py-[28px]">
+        {techCards.map((card, index) => (
+          <li
+            key={card.id}
+            className="glow-border rounded-[20px] bg-ink-800 px-[34px] py-[28px]"
+            data-reveal
+            data-delay={String(Math.min(index + 1, 5))}
+          >
             <h3 className="text-[16px] font-bold text-white">{t(`cards.${card.id}`)}</h3>
             <ul className="mt-[34px] flex flex-col gap-[14px]">
               {card.items.map((item) => (

@@ -3,6 +3,7 @@ import { Nunito, Raleway } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { MotionProvider } from "@/components/motion-provider";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
@@ -70,7 +71,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${raleway.variable} ${nunito.variable}`}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <MotionProvider />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

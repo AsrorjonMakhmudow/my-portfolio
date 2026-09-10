@@ -30,7 +30,7 @@ export function Hero() {
       />
 
       <div className="relative mx-auto flex max-w-[1568px] flex-col items-start gap-16 px-6 pt-[120px] pb-[160px] lg:flex-row lg:items-center lg:justify-between lg:pt-[170px]">
-        <div className="max-w-[662px]">
+        <div className="max-w-[662px]" data-reveal>
           <h1 className="text-[40px] font-medium leading-tight text-white sm:text-[56px] lg:text-[75px]">
             {t("heading")}
           </h1>
@@ -59,12 +59,12 @@ export function Hero() {
           than dead centre, which puts the eyes near the upper third and keeps
           the shoulders in frame; centring exactly leaves too much headroom.
 
-          The 1px gradient ring picks up both accent tokens, echoing the
-          rounded-square mark the design puts here.
+          The ring is the animated conic border — a highlight sweeping both
+          accent tokens, echoing the rounded-square mark the design puts here.
         */}
-        <div className="w-full max-w-[240px] shrink-0 self-center lg:max-w-[390px]">
-          <div className="rounded-[36px] bg-gradient-to-br from-accent/70 via-accent/20 to-accent-alt/70 p-px lg:rounded-[60px]">
-            <div className="relative aspect-square overflow-hidden rounded-[35px] bg-ink-900 lg:rounded-[59px]">
+        <div className="w-full max-w-[240px] shrink-0 self-center lg:max-w-[390px]" data-reveal data-delay="1">
+          <div className="glow-border rounded-[36px] lg:rounded-[60px]">
+            <div className="relative aspect-square overflow-hidden rounded-[36px] bg-ink-900 lg:rounded-[60px]">
               <Image
                 src={portrait.src}
                 alt={t("portraitAlt")}

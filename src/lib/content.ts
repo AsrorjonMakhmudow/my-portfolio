@@ -14,6 +14,9 @@
  * Hero — node 609:29
  * ------------------------------------------------------------------ */
 
+/** Counted up in the stats block; the label around it lives in messages. */
+export const yearsOfExperience = 6;
+
 export const heroLinks = {
   cv: "/asrorjon-makhmudov-cv.pdf",
   experience: "/experience",

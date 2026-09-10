@@ -8,7 +8,10 @@ export function StudyCard({ study }: { study: Study }) {
   const s = `studies.${study.id}` as const;
 
   return (
-    <article className="flex flex-col justify-between gap-[32px] rounded-[20px] bg-ink-800 p-[40px] lg:flex-row lg:items-center lg:p-[84px]">
+    <article
+      className="card-hover flex flex-col justify-between gap-[32px] rounded-[20px] bg-ink-800 p-[40px] lg:flex-row lg:items-center lg:p-[84px]"
+      data-reveal
+    >
       <div>
         <h2 className="text-[24px] font-medium leading-[33px] text-white">
           {t(`${s}.institution`)}
