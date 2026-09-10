@@ -1,9 +1,11 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
-import { brand } from "@/lib/assets";
+import { brand, portrait } from "@/lib/assets";
 import { hero } from "@/lib/content";
 
 /**
- * Node 609:29 for the copy and CTAs, 570:317 for the logo mark.
+ * Node 609:29 for the copy and CTAs; the portrait fills the slot 570:317
+ * gives the logo mark.
  *
  * In Figma everything is absolutely positioned inside a fixed 1920×3550 frame.
  * That does not survive contact with a real viewport, so the two columns are
@@ -46,15 +48,28 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="w-full max-w-[220px] shrink-0 self-center lg:max-w-[390px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={brand.logoMark}
-            alt="Asrorjon Makhmudov monogram"
-            className="block h-auto w-full max-w-full"
-            width={390}
-            height={380}
-          />
+        {/*
+          The slot is 390x380 — square — and the source is 3:4, so it is
+          cropped with object-cover. The focal point is nudged to 45% rather
+          than dead centre, which puts the eyes near the upper third and keeps
+          the shoulders in frame; centring exactly leaves too much headroom.
+
+          The 1px gradient ring picks up both accent tokens, echoing the
+          rounded-square mark the design puts here.
+        */}
+        <div className="w-full max-w-[240px] shrink-0 self-center lg:max-w-[390px]">
+          <div className="rounded-[36px] bg-gradient-to-br from-accent/70 via-accent/20 to-accent-alt/70 p-px lg:rounded-[60px]">
+            <div className="relative aspect-square overflow-hidden rounded-[35px] bg-ink-900 lg:rounded-[59px]">
+              <Image
+                src={portrait.src}
+                alt={portrait.alt}
+                fill
+                sizes="(max-width: 1023px) 240px, 390px"
+                className="object-cover object-[center_45%]"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
