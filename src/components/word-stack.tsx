@@ -6,6 +6,9 @@ import { stats } from "@/lib/content";
  * x=975 / 967 / 966 against a page centre of 960. Each block is 106px tall on
  * a 186px pitch, and measuring the Figma widths (430 / 246 / 277px) against
  * Raleway's own metrics puts the type at ~88px, line-height ~1.2.
+ *
+ * The fill is `violet`, deeper than `accent` — see globals.css for how it was
+ * matched and why it is still unconfirmed.
  */
 export function WordStack() {
   return (
@@ -14,7 +17,7 @@ export function WordStack() {
         {stats.words.map((word) => (
           <li
             key={word}
-            className="text-[44px] font-bold leading-[1.2] text-accent sm:text-[64px] lg:text-[88px]"
+            className="text-[44px] font-bold leading-[1.2] text-violet sm:text-[64px] lg:text-[88px]"
           >
             {word}
           </li>

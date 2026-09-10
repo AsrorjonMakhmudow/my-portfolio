@@ -20,6 +20,20 @@
   --color-accent: #b292ff; /* purple — links, primary accent */
   --color-accent-alt: #5fb9b0; /* teal — secondary accent */
 
+  /*
+   * The oversized Javascript / React / Coffee stack (node 571:54) is a
+   * deeper, more saturated violet than `accent`, and is not one of the
+   * swatches documented on the Assets page (597:1939).
+   *
+   * Matched visually against the rendered Figma canvas rather than read from
+   * the file: the MCP quota is spent and Figma's WebGL buffer cannot be
+   * sampled. Candidate colours were rendered as text beside the real glyphs,
+   * at the same size and through the same screenshot pipeline, so the
+   * comparison is like for like — but it is a match by eye, not the value
+   * from the file. Confirm before shipping.
+   */
+  --color-violet: #7c3aed;
+
   /* Type families are injected by next/font in layout.tsx */
   --font-display: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
   --font-ui: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
