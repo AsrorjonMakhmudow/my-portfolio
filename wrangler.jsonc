@@ -1,0 +1,32 @@
+/**
+ * Cloudflare Workers deployment.
+ *
+ * The site is a Next.js app with middleware (locale detection) and route
+ * handlers, so it needs a server — it cannot be published as static files.
+ * `@opennextjs/cloudflare` compiles the Next.js server output into a single
+ * Worker; static assets are served straight from Cloudflare's edge through the
+ * ASSETS binding and never touch the Worker.
+ *
+ * `npm run preview` runs the real Worker locally; `npm run deploy` ships it.
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "asrorjon-portfolio",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-01",
+  // nodejs_compat: Next's server code reaches for node builtins.
+  // global_fetch_strictly_public: makes fetch() to our own domain go out to the
+  // public internet rather than looping back inside the Worker.
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Backs next/image on Workers — there is no sharp at the edge.
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

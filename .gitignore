@@ -12,3 +12,7 @@ yarn-error.log*
 !.env.example
 next-env.d.ts
 /.idea
+
+# cloudflare workers build output
+.open-next
+.wrangler

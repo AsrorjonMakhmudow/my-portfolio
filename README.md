@@ -79,8 +79,29 @@ technology's brand colour, which also derives the card's tinted fill.
 ## Deploying
 
 `src/middleware.ts` and `next/image` both need a Node or Edge runtime, so
-this does **not** run on a static-only host such as GitHub Pages. Vercel,
-Cloudflare Pages and Netlify all work on their free tiers.
+this does **not** run on a static-only host such as GitHub Pages.
+
+It ships to **Cloudflare Workers** through the OpenNext adapter, which
+compiles the Next.js server into one Worker and serves `public/` and
+`_next/static` straight from Cloudflare's edge:
+
+```bash
+npm run preview   # build + run the real Worker locally on :8787
+npm run deploy    # build + push it live
+```
+
+First time only: `npx wrangler login`. The Worker name and bindings live
+in `wrangler.jsonc`; `open-next.config.ts` says why there is no
+incremental-cache override.
+
+Custom domain: add the domain as a zone in the Cloudflare dashboard, point
+the registrar's nameservers at the pair Cloudflare gives you, then attach
+it under **Workers & Pages → asrorjon-portfolio → Settings → Domains &
+Routes**. Cloudflare issues the certificate; there is nothing to configure
+in this repo.
+
+Note that `next/font/google` fetches the two families at build time, so
+the build needs network access to `fonts.googleapis.com`.
 
 To go fully static instead: set `localePrefix: "always"` in
 `src/i18n/routing.ts`, delete the middleware, and set
