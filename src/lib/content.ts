@@ -35,6 +35,8 @@ export const stats = {
   years: "6 years of",
   badge: "XP",
   caption: "building banking and fintech interfaces with the modern React ecosystem",
+  /** Node 571:54 — the oversized decorative stack. */
+  words: ["Javascript", "React", "Coffee"],
 } as const;
 
 /* ------------------------------------------------------------------ *
