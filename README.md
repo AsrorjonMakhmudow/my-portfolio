@@ -1,52 +1,88 @@
-# vigads.com.br
+# asrormakhmudov
 
-Next.js 15 (App Router) + Tailwind v4 implementation of the `vigads.com.br` Figma file.
+Personal portfolio for Asrorjon Makhmudov, Front-End Software Engineer.
+Next.js 15 (App Router) + Tailwind v4, localised in English, Russian and
+Uzbek, built from the `vigads.com.br` Figma community file.
 
 ```bash
 npm install
 npm run dev
 ```
 
-## What's built
+## Structure
 
-The foundation plus the first vertical slice of the home page:
+```
+messages/          en.json · ru.json · uz.json — all prose, 61 keys each
+public/
+  assets/          portrait
+  brand/           glow + monogram (monogram now unreferenced)
+scripts/
+  build-icons.mjs  regenerates the bundled icon data
+src/
+  app/[locale]/    routes: / · /experience · /education
+  components/
+  i18n/            routing · navigation · request config
+  lib/             content · site · format · icon-data
+  middleware.ts    locale detection
+```
 
-- **Design tokens** — every colour from the Figma Assets page (node `597:1939`) lives in `src/app/globals.css` as Tailwind v4 `@theme` variables. Nothing else in the codebase hardcodes a hex.
-- **Type stack** — Raleway (Light/Medium/Bold) and Nunito (Medium/Bold), loaded through `next/font/google`. Nunito is buttons only; that's what the design does.
-- **`SiteHeader`** — the floating glass pill from node `570:461`.
-- **`Hero`** — copy, CTAs and logo mark from nodes `609:29` and `570:317`.
-- **`Button`** — the two variants that appear throughout the file.
+## How a few things work
 
-## Token map
+**Content vs. copy.** `src/lib/content.ts` holds only what is identical in
+every language — company names, URLs, ISO dates, icon names, technology
+names — each keyed by an id. All prose lives in `messages/`. Dates are
+stored ISO and formatted per locale, so month names are never translated
+by hand.
 
-| Token | Hex | Used for |
-| --- | --- | --- |
-| `ink-950` | `#0C0C0D` | page background |
-| `ink-900` | `#111111` | — |
-| `ink-850` | `#131313` | — |
-| `ink-800` | `#272727` | raised cards |
-| `ink-500` | `#6F6F6F` | body copy |
-| `ink-200` | `#C8C8C8` | secondary text |
-| `accent` | `#B292FF` | links, nav, ghost buttons |
-| `accent-alt` | `#5FB9B0` | secondary accent |
+**Icons** are inlined in `src/lib/icon-data.ts` and registered locally, so
+the page makes no runtime request to Iconify's CDN. 27 icons, regenerated
+with `node scripts/build-icons.mjs` (needs the `@iconify-json/*` packages
+installed).
 
-## Two things to fix before this ships
+**Motion.** One IntersectionObserver drives every reveal; elements opt in
+with a `data-reveal` attribute. The hidden state is scoped to
+`html[data-motion]`, which `MotionProvider` sets on mount — so if the
+script never runs, nothing is hidden and the page renders fully visible.
+`prefers-reduced-motion` is handled by never setting the attribute.
 
-**1. The icons and logo are pointed at expiring URLs.**
-`src/lib/assets.ts` references Figma MCP export URLs that die roughly 7 days after export. My sandbox couldn't reach Figma's CDN to commit the real bytes, so this is the one deliberate shortcut in here. Download them into `public/brand/` and swap the constants — the file is structured so that's a single-file change.
+**The animated border** is a conic gradient rotated by a registered
+`@property` angle and masked to a 1px ring. It takes a `--glow` colour,
+defaulting to the accent pair; carousel cards override it with their
+technology's brand colour, which also derives the card's tinted fill.
 
-Better still for the icons: every icon layer in the design is named after an Iconify set (`mdi:github`, `logos:figma`, `simple-icons:nextdotjs`, `logos:docker-icon`, …). Install `@iconify/react` and reference them by those exact names. You get real SVGs, no export step, and a 1:1 mapping back to the design.
+## Deliberate departures from the Figma file
 
-**2. Layout was rebuilt, not transcribed.**
-Figma positions everything absolutely inside a fixed 1920px frame. That's reproduced here as flex/grid with real breakpoints, using the 393px mobile frames as the small-screen target. Visual spacing at exactly 1920px matches; in between it's my judgement, and worth a designer's eye.
+- Body copy moved from `ink-500` to `ink-200`. `ink-500` measures 2.97:1
+  on the raised cards and 3.89:1 on the page, both under the WCAG AA
+  floor of 4.5:1.
+- The header pill sizes to its content rather than Figma's fixed 622px,
+  which was set for a shorter brand name and one fewer icon.
+- Container widths carry their padding on top (1520 + 48, etc.), because
+  Figma's frame widths are content widths.
+- Carousel prev/next buttons, drag-to-scrub and the language switcher are
+  additions; the design has none of them.
+- `/experience` and `/education` carry an `h1` — the design gives them no
+  heading at all.
 
-## Not built yet
+## Known unfinished
 
-Roughly in the order I'd take them:
+- **The Uzbek translation is a first draft** and wants a native review —
+  `messages/uz.json`.
+- **Colours matched by eye, not read from the file.** The Figma MCP quota
+  is exhausted, so `--color-violet`, `--color-violet-muted` and the
+  carousel card tints were matched by rendering candidates beside the real
+  canvas. They are close; they are not the file's values.
+- **The logo mark and favicon** are placeholders — Figma nodes `570:317`
+  and `712:23` still need exporting.
+- The degree start year in `content.ts` is assumed, not sourced.
 
-1. Tech carousel (`571:459`) — a horizontally scrolling strip of four cards. Wants an embla/scroll-snap treatment plus the four pagination pills at `571:47`–`571:518`.
-2. Tech stack grid (`571:530`) — a masonry-ish set of six cards at varying heights.
-3. Footer (`571:414`).
-4. `/experience` and `/education` routes (`571:531`, `571:1030`) — both are the same card repeated three times against Lorem Ipsum, so they want a real content model. I'd put the entries in typed data and render one `TimelineCard`, not three copies.
+## Deploying
 
-The `experience` and `education` pages are still placeholder copy in Figma, so someone needs to supply the actual roles and dates before those are worth building.
+`src/middleware.ts` and `next/image` both need a Node or Edge runtime, so
+this does **not** run on a static-only host such as GitHub Pages. Vercel,
+Cloudflare Pages and Netlify all work on their free tiers.
+
+To go fully static instead: set `localePrefix: "always"` in
+`src/i18n/routing.ts`, delete the middleware, and set
+`images.unoptimized` in `next.config.ts`. That costs automatic locale
+detection and image optimisation.

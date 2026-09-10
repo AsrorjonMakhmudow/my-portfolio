@@ -22,7 +22,7 @@ export const navLinks = [
  *
  * TODO: replace the two placeholder profile URLs below.
  */
-export const socials = [
+const allSocials = [
   {
     label: "GitHub",
     href: "https://github.com/AsrorjonMakhmudow",
@@ -48,3 +48,9 @@ export const socials = [
     compact: true,
   },
 ] as const;
+
+/**
+ * Anything still pointing at a placeholder is dropped rather than rendered
+ * as a dead link — better a missing icon than one that goes nowhere.
+ */
+export const socials = allSocials.filter((s) => !s.href.includes("REPLACE-ME"));

@@ -22,7 +22,7 @@ export const brand = {
  * set so the eyes land near the upper third — see `hero.tsx`.
  */
 export const portrait = {
-  src: "/assets/portrait_gradient_background.jpg",
+  src: "/assets/portrait_gradient_background.png",
   alt: "Asrorjon Makhmudov",
   width: 2790,
   height: 3720,
