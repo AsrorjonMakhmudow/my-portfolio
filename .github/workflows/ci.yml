@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A newer push supersedes an in-flight run on the same ref.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # `npm ci` over `npm install`: it installs exactly what the lockfile
+      # pins and fails if the lockfile and package.json disagree.
+      - run: npm ci
+
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npx next build
+
+      # The three message catalogues have to carry identical keys — a missing
+      # one throws at render time in that locale only, which is easy to ship
+      # without noticing.
+      - name: Check translation key parity
+        run: |
+          python3 - <<'PY'
+          import json, sys, pathlib
+
+          def keys(d, prefix=""):
+              out = set()
+              for k, v in d.items():
+                  path = f"{prefix}.{k}" if prefix else k
+                  out |= keys(v, path) if isinstance(v, dict) else {path}
+              return out
+
+          base = keys(json.loads(pathlib.Path("messages/en.json").read_text()))
+          failed = False
+
+          for locale in ("ru", "uz"):
+              other = keys(json.loads(pathlib.Path(f"messages/{locale}.json").read_text()))
+              missing, extra = sorted(base - other), sorted(other - base)
+              if missing or extra:
+                  failed = True
+                  print(f"::error file=messages/{locale}.json::{locale}: "
+                        f"{len(missing)} missing, {len(extra)} unexpected")
+                  for k in missing:
+                      print(f"  missing: {k}")
+                  for k in extra:
+                      print(f"  unexpected: {k}")
+              else:
+                  print(f"{locale}: all {len(base)} keys present")
+
+          sys.exit(1 if failed else 0)
+          PY
