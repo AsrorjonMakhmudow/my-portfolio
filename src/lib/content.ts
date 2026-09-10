@@ -38,13 +38,19 @@ export const stats = {
 } as const;
 
 /* ------------------------------------------------------------------ *
- * Tech carousel — node 571:459, four cards
+ * Tech carousel — node 571:459
+ *
+ * Figma draws four cards. This carries the five from the "Front-end
+ * Engineering" card in the grid below, plus TypeScript — so nothing in that
+ * card is missing here.
  * ------------------------------------------------------------------ */
 
 export const carousel = [
   { label: "React", icon: "logos:react" },
+  { label: "Next.js", icon: "simple-icons:nextdotjs" },
   { label: "TypeScript", icon: "logos:typescript-icon" },
   { label: "Vite", icon: "vscode-icons:file-type-vite" },
+  { label: "Angular", icon: "logos:angular-icon" },
   { label: "Figma", icon: "logos:figma" },
 ] as const;
 
