@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 /**
  * Nodes 571:537 (experience) and its education twin — the code-comment styled
@@ -11,18 +12,22 @@ export function PageIntro({
   children: React.ReactNode;
   action?: React.ReactNode;
 }) {
+  const t = useTranslations("common");
+
   return (
     <section className="mx-auto max-w-[1568px] px-6 pt-[120px] pb-[80px]">
       <Link
         href="/"
         className="text-[16px] font-light text-ink-200 transition-colors hover:text-accent"
       >
-        &larr; back
+        &larr; {t("back")}
       </Link>
 
-      <p className="mt-[32px] max-w-[1100px] text-[24px] font-light leading-[1.6] text-ink-200 sm:text-[32px]">
+      {/* The lede is the only heading-level content on these pages, so it is
+          the h1 — without it /experience and /education had no h1 at all. */}
+      <h1 className="mt-[32px] max-w-[1100px] text-[24px] font-light leading-[1.6] text-ink-200 sm:text-[32px]">
         {children}
-      </p>
+      </h1>
 
       {action ? <div className="mt-[40px]">{action}</div> : null}
     </section>

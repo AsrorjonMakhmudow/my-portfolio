@@ -1,8 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { Icon } from "@/components/ui/icon";
-import { navLinks, site, socials } from "@/lib/site";
+import { Link } from "@/i18n/navigation";
+import { site, socials } from "@/lib/site";
 
 /**
  * Node 570:461 — a floating glass pill, centred, 70px tall.
@@ -17,28 +19,33 @@ import { navLinks, site, socials } from "@/lib/site";
  * rather than a second component.
  */
 export function SiteHeader() {
+  const t = useTranslations("nav");
+
   return (
     <header className="sticky top-[30px] z-50 flex justify-center px-6">
       <nav
-        aria-label="Main"
-        className="flex h-[56px] w-auto max-w-full items-center justify-center gap-[10px] rounded-full bg-[rgba(33,31,35,0.35)] px-4 backdrop-blur-[17.5px] sm:h-[70px] sm:gap-[28px] sm:px-8"
+        aria-label={t("ariaMain")}
+        className="flex h-[56px] w-auto max-w-full items-center justify-center gap-[8px] rounded-full bg-[rgba(33,31,35,0.35)] px-3 backdrop-blur-[17.5px] sm:h-[70px] sm:gap-[28px] sm:px-8"
       >
         <Link href="/" className="shrink-0 text-[13px] font-medium text-white sm:text-[20px]">
           <span className="sm:hidden">{site.shortName}</span>
           <span className="hidden sm:inline">{site.name}</span>
         </Link>
 
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="shrink-0 text-[13px] font-medium text-accent transition-colors hover:text-white sm:text-[20px]"
-          >
-            {link.label}
-          </Link>
-        ))}
+        <Link
+          href="/education"
+          className="shrink-0 text-[13px] font-medium text-accent transition-colors hover:text-white sm:text-[20px]"
+        >
+          {t("education")}
+        </Link>
+        <Link
+          href="/experience"
+          className="shrink-0 text-[13px] font-medium text-accent transition-colors hover:text-white sm:text-[20px]"
+        >
+          {t("experience")}
+        </Link>
 
-        <ul className="flex shrink-0 items-center gap-[10px] sm:gap-[16px]">
+        <ul className="flex shrink-0 items-center gap-[8px] sm:gap-[16px]">
           {socials.map((social) => (
             <li key={social.label} className={social.compact ? "" : "hidden sm:block"}>
               <a
@@ -53,6 +60,8 @@ export function SiteHeader() {
             </li>
           ))}
         </ul>
+
+        <LanguageSwitcher />
       </nav>
     </header>
   );

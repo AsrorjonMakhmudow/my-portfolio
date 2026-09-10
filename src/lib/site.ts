@@ -13,8 +13,6 @@ export const navLinks = [
   { label: "experience", href: "/experience" },
 ] as const;
 
-export const footerHeading = "Follow me";
-
 /**
  * Order follows the desktop navbar in Figma (node 570:466).
  * The mobile navbar (595:1491) shows only the `compact` entries.

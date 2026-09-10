@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "ariaMain": "Asosiy navigatsiya",
+    "education": "ta’lim",
+    "experience": "tajriba",
+    "ariaLanguage": "Tilni o‘zgartirish"
+  },
+  "common": {
+    "back": "orqaga",
+    "present": "hozirgacha"
+  },
+  "hero": {
+    "heading": "Salom, men Asrorjonman",
+    "body": "<b>Olti yil</b> davomida <b>front-end dasturchi</b> sifatida, asosan bank va fintech sohasida. Mening ishim komponentlar yozish bilan cheklanmaydi: murakkab moliyaviy jarayonlarni tushunarli, bosqichma-bosqich interfeyslarga aylantiraman va mahsulot, dizayn hamda bekend jamoalari bilan birgalikda yangi funksiyalarni belgilayman.",
+    "ctaPrimary": "Rezyumeni yuklab olish",
+    "ctaSecondary": "Tajribani ko‘rish",
+    "portraitAlt": "Asrorjon Mahmudov"
+  },
+  "stats": {
+    "years": "6 yillik",
+    "badge": "tajriba",
+    "caption": "zamonaviy React ekotizimida bank va fintech interfeyslarini yaratish bo‘yicha"
+  },
+  "tech": {
+    "heading": "Men ishlatadigan texnologiyalar",
+    "ariaCarousel": "Asosiy texnologiyalar",
+    "previous": "Oldingi texnologiya",
+    "next": "Keyingi texnologiya",
+    "show": "{name} ni ko‘rsatish",
+    "cards": {
+      "frontend": "Front-end dasturlash",
+      "languages": "Tillar",
+      "state": "Holat va testlash",
+      "ui": "UI kutubxonalari",
+      "fintech": "Fintech va xavfsizlik"
+    }
+  },
+  "footer": {
+    "follow": "Menga ergashing"
+  },
+  "experience": {
+    "intro": "< Bu yerda men haqimda ko‘proq bilib olishingiz va front-end dasturchi sifatidagi butun tajribamni ko‘rishingiz mumkin. />",
+    "type": {
+      "fullTime": "To‘liq bandlik",
+      "contract": "Shartnoma asosida"
+    },
+    "roles": {
+      "linear": {
+        "title": "Software Engineer",
+        "location": "Toshkent, O‘zbekiston",
+        "p1": "Kreditlash platformasining front-end qismini ishlab chiqish: mijoz va kompaniya ma’lumotlari, kafillar, garov, shartlar va mahsulot konfiguratsiyasini bog‘laydigan ko‘p bosqichli ariza shakllari — murakkab moliyaviy jarayonlarni foydalanuvchi bemalol o‘ta oladigan interfeyslarga aylantirish.",
+        "p2": "Moliya sohasi xavfsizlik talablariga javob beradigan E-IMZO raqamli imzosi va MyID biometrik identifikatsiyasi orqali autentifikatsiya va shaxsni tasdiqlash jarayonlarini joriy etish. Ilovaning asosiy tuzilmasi va navigatsiyasini — yig‘iladigan yon panel, rollarga asoslangan menyu, moslashuvchan tuzilma — hamda o‘qilishi va raqamlar tekisligiga e’tibor berilgan monitoring panellari va batafsil jadvallarni yaratish."
+      },
+      "anorbank": {
+        "title": "Front-end dasturchi",
+        "location": "Toshkent, O‘zbekiston",
+        "p1": "Bank xodimlari kundalik foydalanadigan ichki veb-ilovalar va boshqaruv panellarini ishlab chiqish va qo‘llab-quvvatlash. Asosiy stek — Vite yordamida yig‘iladigan React va TypeScript, shuningdek loyiha talab qilgan joyda Angular.",
+        "p2": "REST API integratsiyasi, murakkab qayta ishlatiladigan UI komponentlarini yaratish va ularni Jest bilan unit-testlar orqali qamrab olish. Holatni boshqarishda Redux Toolkit’dan Zustand’ga o‘tish, Mantine, Ant Design va Material UI kutubxonalari bilan ishlash. Bank ilovalarida avtorizatsiya va xavfsizlikka doimiy e’tibor qaratgan holda code review, refaktoring va arxitektura qarorlarida ishtirok etish."
+      },
+      "sectorsoft": {
+        "title": "Front-end dasturchi",
+        "location": "Toshkent, O‘zbekiston — masofadan va ofisda",
+        "p1": "Dasturiy ta’minotni ishlab chiqishning to‘liq hayotiy tsikli bo‘ylab shartnoma asosidagi ish: har bir topshiriq uchun yechim konsepsiyasini shakllantirish, so‘ngra uni yaratish, sozlash va nosozliklarni bartaraf etish.",
+        "p2": "Mavjud komponentlarni ishlash qobiliyati va nosozliklarga chidamliligi bo‘yicha testdan o‘tkazish, test va tahlil natijalariga ko‘ra dasturiy ta’minotni tuzatish, kelishilgan samaradorlik ko‘rsatkichlariga muvofiq uzluksiz ishlashni ta’minlash uchun texnik xizmat ko‘rsatish va yangilash."
+      },
+      "simplex": {
+        "title": "Front-end dasturchi (verstka)",
+        "location": "Toshkent, O‘zbekiston",
+        "p1": "Elektron tijorat, moliya, sog‘liqni saqlash va korporativ loyihalarda veb-saytlar, boshqaruv panellari va ilovalar uchun turli qurilmalarga moslashtirilgan responsiv maketlar yaratish.",
+        "p2": "Loyihalar o‘rtasida dizayn elementlarini standartlashtirish uchun Ant Design, Bootstrap va TailwindCSS yordamida qayta ishlatiladigan UI komponentlarini ishlab chiqish, Figma, Adobe XD va Sketch maketlari bilan ishlash, API va ma’lumotlar modellari bilan uzluksiz integratsiya uchun bekend dasturchilari bilan yaqindan hamkorlik qilish."
+      }
+    }
+  },
+  "education": {
+    "intro": "< Men qayerda o‘qiganim va har kuni ishlatadigan tillarim. />",
+    "viewCertificate": "Sertifikatni ko‘rish",
+    "languagesHeading": "Tillar",
+    "studies": {
+      "nuuz": {
+        "institution": "O‘zbekiston Milliy universiteti",
+        "qualification": "Bakalavr — axborot texnologiyalari, kiberxavfsizlik"
+      }
+    },
+    "languages": {
+      "uz": {
+        "name": "O‘zbek",
+        "level": "Ona tili"
+      },
+      "ru": {
+        "name": "Rus",
+        "level": "B2 — o‘rtadan yuqori"
+      },
+      "en": {
+        "name": "Ingliz",
+        "level": "B1 — o‘rta"
+      }
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Asrorjon Mahmudov — front-end dasturchi",
+      "description": "React va TypeScript’da bank hamda fintech interfeyslarini yaratish bo‘yicha olti yillik tajribaga ega front-end dasturchi. Toshkent, O‘zbekiston."
+    },
+    "experience": {
+      "title": "Tajriba — Asrorjon Mahmudov",
+      "description": "Bank va fintech sohasida olti yillik front-end tajribasi: Linear Technology Solutions, Anorbank, Sector Soft va Simplex ITC."
+    },
+    "education": {
+      "title": "Ta’lim — Asrorjon Mahmudov",
+      "description": "Axborot texnologiyalari va kiberxavfsizlik bakalavri, O‘zbekiston Milliy universiteti."
+    }
+  }
+}

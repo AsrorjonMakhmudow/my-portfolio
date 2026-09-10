@@ -1,7 +1,8 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { ButtonLink } from "@/components/ui/button";
 import { brand, portrait } from "@/lib/assets";
-import { hero } from "@/lib/content";
+import { heroLinks } from "@/lib/content";
 
 /**
  * Node 609:29 for the copy and CTAs; the portrait fills the slot 570:317
@@ -13,6 +14,8 @@ import { hero } from "@/lib/content";
  * the `lg` breakpoint to match the 393px mobile frame (595:2).
  */
 export function Hero() {
+  const t = useTranslations("hero");
+
   return (
     <section className="relative overflow-hidden">
       {/* Ambient glow behind the mark. Decorative, so hidden from a11y tree. */}
@@ -29,21 +32,23 @@ export function Hero() {
       <div className="relative mx-auto flex max-w-[1568px] flex-col items-start gap-16 px-6 pt-[120px] pb-[160px] lg:flex-row lg:items-center lg:justify-between lg:pt-[170px]">
         <div className="max-w-[662px]">
           <h1 className="text-[40px] font-medium leading-tight text-white sm:text-[56px] lg:text-[75px]">
-            {hero.heading}
+            {t("heading")}
           </h1>
 
           <p className="mt-[30px] text-[18px] font-light leading-[1.9] text-ink-200 sm:text-[24px] sm:leading-[48px]">
-            <strong className="font-bold text-white">{hero.intro.lead}</strong> as{" "}
-            <strong className="font-bold text-white">{hero.intro.role}</strong>,{" "}
-            {hero.intro.body}
+            {/* Rich text, not three concatenated fragments: the emphasised
+                words fall in a different order in Russian and Uzbek. */}
+            {t.rich("body", {
+              b: (chunks) => <strong className="font-bold text-white">{chunks}</strong>,
+            })}
           </p>
 
           <div className="mt-[40px] flex flex-col gap-[16px] sm:flex-row sm:items-center sm:gap-[31px]">
-            <ButtonLink href={hero.ctaPrimary.href} variant="solid">
-              {hero.ctaPrimary.label}
+            <ButtonLink href={heroLinks.cv} variant="solid">
+              {t("ctaPrimary")}
             </ButtonLink>
-            <ButtonLink href={hero.ctaSecondary.href} variant="ghost">
-              {hero.ctaSecondary.label}
+            <ButtonLink href={heroLinks.experience} variant="ghost">
+              {t("ctaSecondary")}
             </ButtonLink>
           </div>
         </div>
@@ -62,7 +67,7 @@ export function Hero() {
             <div className="relative aspect-square overflow-hidden rounded-[35px] bg-ink-900 lg:rounded-[59px]">
               <Image
                 src={portrait.src}
-                alt={portrait.alt}
+                alt={t("portraitAlt")}
                 fill
                 sizes="(max-width: 1023px) 240px, 390px"
                 className="object-cover object-[center_45%]"

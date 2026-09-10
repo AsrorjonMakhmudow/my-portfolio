@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/ui/icon";
 import { carousel } from "@/lib/content";
@@ -44,6 +45,7 @@ const GAP = 40;
  * The arrows are an addition, not from the design, which shows only pills.
  */
 export function TechCarousel() {
+  const t = useTranslations("tech");
   const trackRef = useRef<HTMLUListElement>(null);
   const [active, setActive] = useState(0);
   const [scrollable, setScrollable] = useState(false);
@@ -152,7 +154,7 @@ export function TechCarousel() {
         ref={trackRef}
         tabIndex={0}
         role="group"
-        aria-label="Core technologies"
+        aria-label={t("ariaCarousel")}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -183,7 +185,7 @@ export function TechCarousel() {
                 key={tech.label}
                 type="button"
                 onClick={() => goTo(index)}
-                aria-label={`Show ${tech.label}`}
+                aria-label={t("show", { name: tech.label })}
                 aria-current={index === active}
                 className={`h-[13px] rounded-full transition-all duration-300 ${
                   index === active ? "w-[66px] bg-accent" : "w-[20px] bg-ink-800"
@@ -194,13 +196,13 @@ export function TechCarousel() {
 
           <div className="flex shrink-0 gap-[12px]">
             <CarouselButton
-              label="Previous technology"
+              label={t("previous")}
               icon="mdi:chevron-left"
               disabled={atStart}
               onClick={() => step(-1)}
             />
             <CarouselButton
-              label="Next technology"
+              label={t("next")}
               icon="mdi:chevron-right"
               disabled={atEnd}
               onClick={() => step(1)}

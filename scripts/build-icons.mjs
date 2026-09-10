@@ -10,7 +10,7 @@ const used = {
     "file-sign", "face-recognition", "api", "shield-account",
     "github", "linkedin", "telegram", "email-outline", "teddy-bear",
     // carousel controls
-    "chevron-left", "chevron-right",
+    "chevron-left", "chevron-right", "chevron-down",
   ],
   "simple-icons": ["nextdotjs", "mantine", "antdesign"],
   "vscode-icons": ["file-type-vite"],

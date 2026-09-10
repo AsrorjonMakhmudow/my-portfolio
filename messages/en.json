@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "ariaMain": "Main",
+    "education": "education",
+    "experience": "experience",
+    "ariaLanguage": "Change language"
+  },
+  "common": {
+    "back": "back",
+    "present": "Present"
+  },
+  "hero": {
+    "heading": "Hi, I’m Asrorjon",
+    "body": "<b>Six years</b> as <b>Front-End Software Engineer</b>, most of them in banking and fintech. My work goes beyond writing components — turning dense financial workflows into clear, step-by-step interfaces and defining features alongside product, design and back-end teams.",
+    "ctaPrimary": "Download CV",
+    "ctaSecondary": "See experiences",
+    "portraitAlt": "Asrorjon Makhmudov"
+  },
+  "stats": {
+    "years": "6 years of",
+    "badge": "XP",
+    "caption": "building banking and fintech interfaces with the modern React ecosystem"
+  },
+  "tech": {
+    "heading": "These are the technologies I’ve been using",
+    "ariaCarousel": "Core technologies",
+    "previous": "Previous technology",
+    "next": "Next technology",
+    "show": "Show {name}",
+    "cards": {
+      "frontend": "Front-end Engineering",
+      "languages": "Languages",
+      "state": "State & Testing",
+      "ui": "UI Libraries",
+      "fintech": "Fintech & Security"
+    }
+  },
+  "footer": {
+    "follow": "Follow me"
+  },
+  "experience": {
+    "intro": "< Here you can get to know me a little more and see my full experience as a Front-End Software Engineer. />",
+    "type": {
+      "fullTime": "Full-time",
+      "contract": "Contract"
+    },
+    "roles": {
+      "linear": {
+        "title": "Software Engineer",
+        "location": "Tashkent, Uzbekistan",
+        "p1": "Building the front end of a lending platform — multi-step application forms that tie together client and company data, guarantors, collateral, terms and product configuration, turning dense financial workflows into interfaces people can actually move through.",
+        "p2": "Implemented secure authentication and identity verification with E-IMZO digital signatures and MyID biometrics to meet financial-sector compliance standards. Built the application shell — collapsible sidebar, role-based navigation, responsive layout — plus data-heavy monitoring dashboards and tables designed around readability and numeric alignment."
+      },
+      "anorbank": {
+        "title": "Front-End Developer",
+        "location": "Tashkent, Uzbekistan",
+        "p1": "Developed and maintained internal web applications and admin panels used daily by bank staff, working primarily in React and TypeScript with Vite, and in Angular where the project called for it.",
+        "p2": "Integrated REST APIs, built complex reusable UI components and covered them with unit tests in Jest. Moved state management from Redux Toolkit to Zustand, and worked across Mantine, Ant Design and Material UI. Took part in code review, refactoring and architecture decisions, with a standing focus on authorization and security in banking applications."
+      },
+      "sectorsoft": {
+        "title": "Front-End Developer",
+        "location": "Tashkent, Uzbekistan — remote and on-site",
+        "p1": "Contract work spanning the full software development lifecycle: shaping the solution concept for each assigned task, then building, debugging and troubleshooting the result.",
+        "p2": "Tested existing components for functionality and fault tolerance, corrected software based on test and debug analysis, and handled ongoing maintenance and updates to keep delivery running against agreed performance targets."
+      },
+      "simplex": {
+        "title": "Front-End Developer",
+        "location": "Tashkent, Uzbekistan",
+        "p1": "Built responsive layouts for websites, admin panels and applications across e-commerce, finance, healthcare and corporate projects, optimised for a wide range of devices.",
+        "p2": "Developed reusable UI components with Ant Design, Bootstrap and TailwindCSS to standardise design elements across projects, worked from Figma, Adobe XD and Sketch files, and collaborated closely with back-end developers on API and data-model integration."
+      }
+    }
+  },
+  "education": {
+    "intro": "< Where I studied, and the languages I work in day to day. />",
+    "viewCertificate": "View certificate",
+    "languagesHeading": "Languages",
+    "studies": {
+      "nuuz": {
+        "institution": "National University of Uzbekistan",
+        "qualification": "Bachelor — Information Technology, Cyber Security"
+      }
+    },
+    "languages": {
+      "uz": { "name": "Uzbek", "level": "Native" },
+      "ru": { "name": "Russian", "level": "B2 — Upper Intermediate" },
+      "en": { "name": "English", "level": "B1 — Intermediate" }
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Asrorjon Makhmudov — Front-End Software Engineer",
+      "description": "Front-End Software Engineer with six years building banking and fintech interfaces in React and TypeScript. Based in Tashkent, Uzbekistan."
+    },
+    "experience": {
+      "title": "Experience — Asrorjon Makhmudov",
+      "description": "Six years of front-end engineering across banking and fintech: Linear Technology Solutions, Anorbank, Sector Soft and Simplex ITC."
+    },
+    "education": {
+      "title": "Education — Asrorjon Makhmudov",
+      "description": "Bachelor in Information Technology and Cyber Security, National University of Uzbekistan."
+    }
+  }
+}
