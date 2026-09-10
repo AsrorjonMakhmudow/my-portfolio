@@ -18,6 +18,14 @@ const GAP = 40;
  * 66px wide for the active one, 20px for the rest — sitting 22px below the
  * strip, inset from the viewport's left edge rather than centred.
  *
+ * Card content is left-aligned, inset 50px from the left and 90px from the
+ * top, icon above label — consistent across all four cards in the design.
+ *
+ * TODO: each card in Figma carries its own tinted background keyed to the
+ * technology (pale olive for JavaScript, steel blue for React, light grey for
+ * Next.JS) with dark label text, not the single ink-800 used here. The exact
+ * fills still need reading off the file.
+ *
  * Scroll-snap rather than a JS carousel: native touch momentum and keyboard
  * scrolling come free, and it still works if the JS never runs.
  */
@@ -77,10 +85,10 @@ export function TechCarousel() {
         {carousel.map((tech) => (
           <li
             key={tech.label}
-            className="flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-center justify-center gap-[24px] rounded-[20px] bg-ink-800 sm:w-[409px]"
+            className="flex h-[277px] w-[300px] shrink-0 snap-start flex-col items-start rounded-[20px] bg-ink-800 pt-[90px] pl-[50px] sm:w-[409px]"
           >
-            <Icon icon={tech.icon} size={56} />
-            <span className="text-[24px] font-medium text-white">{tech.label}</span>
+            <Icon icon={tech.icon} size={52} />
+            <span className="mt-[11px] text-[24px] font-medium text-white">{tech.label}</span>
           </li>
         ))}
       </ul>
